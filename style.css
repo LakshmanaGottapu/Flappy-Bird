@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.ball{
+  /* --ball-top: 100; */
+  --ball-width: 10;
+  width: 5vh;
+  height: 5vh;
+  border: 1px solid black;
+  border-radius: 100%;
+  background-color: yellow;
+  position: absolute;
+  left: calc(var(--ball-width)*1px);
+  top: calc(var(--ball-top)*1px);
+  box-shadow: 1px 1px;
+}
+
