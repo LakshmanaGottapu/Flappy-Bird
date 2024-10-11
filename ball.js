@@ -2,12 +2,15 @@ const ball = document.querySelector('.ball');
 const BALL_SPEED = 0.25;
 let timeLastJump = Number.POSITIVE_INFINITY;
 const JUMP_DURATION = 150;
-const JUMP_SPEED = 2;
+const JUMP_SPEED = 3;
 export function updateBall(delta){
     const rect = ball.getBoundingClientRect();
     if(rect.bottom >=window.innerHeight){
         // window.alert('game over! click OK to play one more');
         reset();
+    }
+    if(rect.top <= 10){
+        setPosition(10);
     }
     if(timeLastJump <= JUMP_DURATION){
         setPosition(getPosition()-BALL_SPEED*delta*JUMP_SPEED);
