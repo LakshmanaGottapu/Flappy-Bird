@@ -26,4 +26,15 @@ body {
   top: -5vh;
   right: calc(var(--pipe-right)*1px);
 }
+.top{
+  --hole-height: 0;
+  top: 0;
+  height: calc(var(--hole-height)*1px);
+  background-color: red;
+}
+.bottom{
+  --hole-height: 0;
+  bottom: 0;
+  height: calc(var(--hole-height)*1px);
+}
 
