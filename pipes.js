@@ -1,11 +1,9 @@
-let PIPE_SPEED = 0.015;
-// const pipes = document.querySelectorAll('.pipe');
+let PIPE_SPEED = 0.0015;
+const HOLE_HEIGHT = 200;
 const app = document.getElementById('app');
 const pipes = [];
 export function updatePipe(delta){
-    // const pipe = document.createElement('div');
-    // pipe.classList.add('pipe');
-    // PIPE_SPEED += 0.0001
+    PIPE_SPEED += 0.0001
     pipes.forEach((pipe, index) => {
         if(getPipePosition(pipe)>window.innerWidth){
             app.removeChild(pipe);
@@ -18,18 +16,20 @@ export function createPipe(){
     const pipe = document.createElement('div');
     pipe.classList.add('pipe');
     const topPipe = document.createElement('div');
-    // const bottomPipe = document.createElement('div');
+    const bottomPipe = document.createElement('div');
     topPipe.classList.add('top');
-    // bottomPipe.classList('bottom');
-    topPipe.style.setProperty('--hole-height', randomeHeight());
+    bottomPipe.classList.add('bottom');
+    const height = randomeHeight()
+    topPipe.style.setProperty('--hole-height', height);
+    bottomPipe.style.setProperty('--hole-height', window.innerHeight-height-HOLE_HEIGHT);
     pipe.appendChild(topPipe);
-    // bottomPipe.style.setProperty('--hole-height', randomeHeight());
+    pipe.appendChild(bottomPipe);
     app.appendChild(pipe);
     pipes.push(pipe);
 }
 function randomeHeight(){
-    const min = 0.3;
-    const max = 0.6;
+    const min = 0.1;
+    const max = 0.7;
     return (min+(max-min)*Math.random())*window.innerHeight;
 }
 function setPipePosition(pipe, position){

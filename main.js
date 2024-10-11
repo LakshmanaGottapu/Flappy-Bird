@@ -3,7 +3,9 @@ import { updatePipe, createPipe } from './pipes.js';
 
 let lastRun=Number.NEGATIVE_INFINITY;
 let lastPipeCreated=null;
+let thetaLimit = 6000
 function run(time){
+  thetaLimit -= 0.1;
   if(lastPipeCreated === null){
     lastPipeCreated = time;
     createPipe();
@@ -12,7 +14,7 @@ function run(time){
   }
   const theta = time-lastPipeCreated;
   const delta = time-lastRun;
-  if(theta >= 3000){
+  if(theta >= thetaLimit){
     lastPipeCreated = time;
     createPipe();
   }
