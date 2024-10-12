@@ -1,6 +1,6 @@
 let PIPE_SPEED = 0.25;
 const HOLE_HEIGHT = 200;
-const app = document.getElementById('app');
+export const app = document.getElementById('app');
 export let pipes = [];
 export function updatePipe(delta){
     pipes.forEach((pipe, index) => {

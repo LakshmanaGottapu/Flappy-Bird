@@ -1,5 +1,6 @@
 import {pipes} from './pipes.js'
 // import { lastRun, lastPipeCreated } from './main.js'
+import {app} from './pipes.js';
 const ball = document.querySelector('.ball');
 const BALL_SPEED = 0.25;
 let timeLastJump = Number.POSITIVE_INFINITY;
@@ -8,8 +9,9 @@ const JUMP_SPEED = 3;
 export function updateBall(delta){
     const rect = ball.getBoundingClientRect();
     if(gameOver() || rect.bottom >= window.innerHeight){
-        window.alert('game over! click OK to play one more');
         reset();
+        window.alert('game over! click OK to play one more');
+        return;
     }
     if(rect.top <= 10){
         setPosition(10);
@@ -23,12 +25,18 @@ export function updateBall(delta){
     }
 }
 export function reset(){
-    setPosition(window.innerHeight/2);
+    setPosition(5);
     // lastRun=Number.NEGATIVE_INFINITY;
     // lastPipeCreated=null;
     window.removeEventListener('keydown', handleJump);
     window.addEventListener('keydown', handleJump);
-    // pipes = [];
+    pipes.splice(0,pipes.length);
+    app.innerHTML = ''
+    // pipes.forEach((pipe, index) => {
+    //     app.removeChild(pipe);
+    //     pipes.splice(index,1);
+    //     // setPipePosition(pipe, getPipePosition(pipe)+delta*PIPE_SPEED);
+    // })
 }
 function handleJump(e){
     if (e.code !== 'Space') return;

@@ -5,6 +5,7 @@ body {
 
 .ball{
   --ball-width: 400;
+  --ball-top: 5;
   width: 4vh;
   height: 4vh;
   border: 1px solid black;
