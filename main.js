@@ -3,7 +3,7 @@ import { updatePipe, createPipe } from './pipes.js';
 
 let lastRun=Number.NEGATIVE_INFINITY;
 let lastPipeCreated=null;
-let thetaLimit = 6000
+let thetaLimit = 2000;
 function run(time){
   thetaLimit -= 0.1;
   if(lastPipeCreated === null){

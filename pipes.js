@@ -1,9 +1,8 @@
-let PIPE_SPEED = 0.0015;
+let PIPE_SPEED = 0.25;
 const HOLE_HEIGHT = 200;
 const app = document.getElementById('app');
 const pipes = [];
 export function updatePipe(delta){
-    PIPE_SPEED += 0.0001
     pipes.forEach((pipe, index) => {
         if(getPipePosition(pipe)>window.innerWidth){
             app.removeChild(pipe);
@@ -17,9 +16,9 @@ export function createPipe(){
     pipe.classList.add('pipe');
     const topPipe = document.createElement('div');
     const bottomPipe = document.createElement('div');
-    topPipe.classList.add('top');
-    bottomPipe.classList.add('bottom');
-    const height = randomeHeight()
+    topPipe.classList.add('segment', 'top');
+    bottomPipe.classList.add('segment', 'bottom');
+    const height = randomeHeight();
     topPipe.style.setProperty('--hole-height', height);
     bottomPipe.style.setProperty('--hole-height', window.innerHeight-height-HOLE_HEIGHT);
     pipe.appendChild(topPipe);

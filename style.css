@@ -26,16 +26,10 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-.top{
-  --hole-height: 0;
-  top: 0;
-  height: calc(var(--hole-height)*1px);
+.segment{
   background-color: red;
-}
-.bottom{
   --hole-height: 0;
-  bottom: 0;
   height: calc(var(--hole-height)*1px);
-  background-color: blue;
 }
+
 
