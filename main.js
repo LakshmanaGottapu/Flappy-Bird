@@ -4,7 +4,10 @@ import { updatePipe, createPipe } from './pipes.js';
 let lastRun=Number.NEGATIVE_INFINITY;
 let lastPipeCreated=null;
 let thetaLimit = 2000;
+export const game = {start:false};
 function run(time){
+  console.log('game')
+  if(game.start){
   if(lastPipeCreated === null){
     lastPipeCreated = time;
     createPipe();
@@ -22,10 +25,13 @@ function run(time){
     updateBall(delta);
     updatePipe(delta);
   }
-  window.requestAnimationFrame(run);
+}
+window.requestAnimationFrame(run);
 }
 
 window.requestAnimationFrame(run);
+
+document.addEventListener('keydown',(e)=>game.start = (e.code == 'Space'));
 
 
 

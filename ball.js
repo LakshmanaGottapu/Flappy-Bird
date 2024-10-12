@@ -1,5 +1,5 @@
 import {pipes} from './pipes.js'
-// import { lastRun, lastPipeCreated } from './main.js'
+import { game } from './main.js';
 import {app} from './pipes.js';
 const ball = document.querySelector('.ball');
 const BALL_SPEED = 0.25;
@@ -31,7 +31,8 @@ export function reset(){
     window.removeEventListener('keydown', handleJump);
     window.addEventListener('keydown', handleJump);
     pipes.splice(0,pipes.length);
-    app.innerHTML = ''
+    app.innerHTML = '';
+    game.start = false;
     // pipes.forEach((pipe, index) => {
     //     app.removeChild(pipe);
     //     pipes.splice(index,1);
