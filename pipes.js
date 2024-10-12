@@ -1,7 +1,7 @@
 let PIPE_SPEED = 0.25;
 const HOLE_HEIGHT = 200;
 const app = document.getElementById('app');
-const pipes = [];
+export let pipes = [];
 export function updatePipe(delta){
     pipes.forEach((pipe, index) => {
         if(getPipePosition(pipe)>window.innerWidth){
